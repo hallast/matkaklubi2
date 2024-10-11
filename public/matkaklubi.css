@@ -1,0 +1,158 @@
+html {
+    font-size: 16px;
+}
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+.header-container {
+    background-image: url(./assets/Hills.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 48.625rem;
+}
+
+.logo-area {
+    display: flex;
+}
+
+.logo-image img {
+    display: block;
+    width: 4rem;
+    height: 4rem;
+}
+
+.logo-name {
+    width: 9rem;
+    font-size: 2.0625rem;
+    letter-spacing: 0;
+    color: #0B0B0B;
+    opacity: 1;
+    font-weight: 800;
+    line-height: 2.1rem;
+
+}
+
+.pais-menyy {
+    font-family: 'Montserrat', sans-serif;
+	font-size: 1.3rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.166rem;
+    margin-left: auto;
+    padding-left: 3rem;
+}
+
+.pais-menyy ul {
+    list-style-type: none;
+    justify-content: flex-end;
+}
+
+.pais-menyy li {
+    padding: 0;
+    margin-left: 0.625rem;
+    min-width: 6.25rem;
+}
+
+.pais-menyy a {
+    color: #0B0B0B;
+    text-decoration: none;
+}
+
+.pohi-varv {
+    color: #0B0B0B;
+}
+
+.pealkiri-kastid {
+    padding-top: 2rem;
+    letter-spacing: 0;
+    color: #0B0B0B;
+}
+
+.pealkiri-kastid h2 {
+    font-size: 2.4731rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.pealkiri-kastid h1 {
+    font-size: 4.649rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.pealkiri-kastid h3 {
+    font-size: 1.301rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.pealkiri-pilt {
+    overflow: hidden;
+}
+
+.pealkiri-pilt .matkaja {
+    width: 46.875rem;
+    height: 46.875rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: -25rem;
+}
+
+.pealkiri-pilt .vari {
+    width: 68.1875rem;
+    height: 5.4375rem;
+    margin-top: -40px;
+    margin-left: -100px;
+}
+
+.rida {
+    display: flex;
+}
+
+.liblikas1 {
+    width: 4.7rem;
+    height: 3.75rem;
+    margin-top: -3.75rem;
+    margin-left: auto;
+}
+
+.liblikas2 {
+    width: 3.75rem;
+    height: 2rem;
+    margin-left: -3.75rem;
+}
+
+.call-to-action {
+    width: 12.625rem;
+    height: 3.625rem;
+    background-color: #0B0B0B;
+    text-align: left;
+    letter-spacing: 0.14rem;
+    color: #FFFFFF;
+    font-size: 0.9rem;
+    text-decoration: none;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 3.625rem;
+}
+
+.call-to-action:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.matkapilt {
+    width: 50%
+}
+
+
+@media screen and (min-width: 992px) {
+    .pealkiri-kastid {
+        padding-top: 14.44rem;
+    }
+}
+
+
