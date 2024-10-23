@@ -4,7 +4,7 @@ const path = require('path')
 
 
 const app = express()
-app.use(express.json())
+app.use(express.urlencoded())
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -37,6 +37,39 @@ const matkad =[
     }
 ]
 
+
+
+function registreeruMatkale(matkaIndex, nimi, email) {
+    if (matkaIndex > matkad.length) {
+        console.log("Vale matka index")
+        return
+    }
+    const matk = matkad[matkaIndex]
+    const uusMatkaja = {
+        nimi: nimi,
+        email: email,
+        registreerumisAeg: new Date()
+    }
+    matk.osalejad.push(uusMatkaja)
+    console.log(matkad)
+    
+}
+
+
+//Matkaklubi kontakti lehe sõnumid
+const messages =[]
+
+function msgKinnitus(nimi, email, msg) {
+    const uusMsg = {
+        nimi: nimi,
+        email: email,
+        msg: msg,
+        saatmisAeg: new Date()
+    }
+    messages.push(uusMsg)
+    console.log(messages)
+}
+
 // Matkade funktsion
 function naitaMatkad(req, res) {
     res.render("matkad", {matkad:matkad})
@@ -46,10 +79,54 @@ function naitaMatkad(req, res) {
 app.get('/test', (req, res) => (res.end('All OK')))
 app.use('/' , express.static("public"))
 
+// Matkade kuvamine esilehel
 app.get('/', (req, res) => {res.render("esileht", {matkad:matkad})})
+
+// 1 matka kuvamine
 app.get('/matk/:matkId', (req, res) => {
     const matkaIndex= req.params.matkId
-    res.render("matk", {matk:matkad[matkaIndex]})
+    res.render("matk", {matk:matkad[matkaIndex], id: matkaIndex})
 })
 
-app.listen(PORT)
+// UUDISED alamleht
+const jsonData = require('./data.json')
+app.get('/uudised', (req, res) => {res.render("uudised", {uudised: jsonData.uudis})})
+
+// 1 UUDISE kuvamine
+app.get('/uudised/:uudisId', (req, res) => {
+    const uudisIndex= req.params.uudisId
+    res.render("uudis", {uudis: jsonData.uudis[uudisIndex]})
+})
+
+// Registreerumine <form method="GET"> (req.query) - saadetavad andmed URL-is. 
+app.get('/registreerumine', (req, res) => {
+   registreeruMatkale(
+    req.query.matkaIndex,
+    req.query.nimi,
+    req.query.email
+   )
+   res.render('reg_kinnitus', {matk: matkad[req.query.matkaIndex], nimi: req.query.nimi})
+})
+
+// Registreerumine <form method="POST"> (req.body) - saadetavad andmed peidetud
+app.post('/registreerumine', (req, res) => {
+    registreeruMatkale(
+     req.body.matkaIndex,
+     req.body.nimi,
+     req.body.email
+    )
+    res.render('reg_kinnitus', {matk: matkad[req.body.matkaIndex], nimi: req.body.nimi})
+ })
+
+ app.get('/kontakt', (req, res) => {res.render("kontakt")})
+ app.post('/kontakt', (req, res) => {
+    msgKinnitus(     
+     req.body.nimi,
+     req.body.email,
+     req.body.msg
+    )
+    res.render('msg_kinnitus', {nimi: req.body.nimi})
+    
+ })
+
+ app.listen(PORT)

@@ -1,0 +1,34 @@
+{
+    "uudis": [
+        {
+            "pilt": "https://picsum.photos/id/111/300/200",
+            "pealkiri": "Uudis number 1",
+            "kokkuvote": "See on esimene uudis"
+        },
+        {
+            "pilt": "https://picsum.photos/id/112/300/200",
+            "pealkiri": "Pommuudis",
+            "kokkuvote": "Pommuudis, suurim lugu, loe kohe!"
+        },
+        {
+            "pilt": "https://picsum.photos/id/113/300/200",
+            "pealkiri": "Teadaanne!!!",
+            "kokkuvote": "Avalik teadaanne päevauudistest"
+        },
+        {
+            "pilt": "https://picsum.photos/id/114/300/200",
+            "pealkiri": "Uudislugu 2",
+            "kokkuvote": "See on teine oluline uudis"
+        },
+        {
+            "pilt": "https://picsum.photos/id/115/300/200",
+            "pealkiri": "Tähtis uudis",
+            "kokkuvote": "Väga oluline info, kindlasti peab lugema"
+        },
+        {
+            "pilt": "https://picsum.photos/id/116/300/200",
+            "pealkiri": "Teadaanne 3",
+            "kokkuvote": "Avalik teadaanne kõigile lugejatele"
+        }
+    ]
+}

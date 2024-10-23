@@ -3,9 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/matkaklubi.css">
     <title>Matkainfo</title>
 </head>
 <body>
-    <h1> <%= matk.nimetus %></h1>
+    <h1> <%= matk.nimetus + ' ' + id %></h1>
+    
+
+    <form class="registreerumine" action="/registreerumine" method="post">
+        <div class="vali">
+        <label for="nimi">Nimi</label>
+        <input type="text" name="nimi" placeholder="nimi">
+        </div>
+        <div class="vali">
+        <label for="email">E-mail</label>
+        <input type="text" name="email" placeholder="email">    
+        </div> 
+        <input type="hidden" name="matkaIndex" value="<%= id %>">
+        <input type="submit" value="Registreeru">      
+    </form>
+
+
+    
 </body>
 </html>

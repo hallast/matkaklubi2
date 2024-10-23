@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Uudised</title>
+    <%- include("./partials/header.ejs") %>
+</head>
+
+<body>
+    <div>
+    <%- include("./partials/menu.ejs") %>
+    </div>
+    <div class='block'>
+        <h1>UUDISED</h1>
+        <% for (let i = 0; i<uudised.length; i++) { %>
+        <div class="uudis">
+            <img src="<%=uudised[i].pilt %>" />
+            <h3> <%=uudised[i].pealkiri %> </h3>
+            <p><%=uudised[i].kokkuvote %></p>             
+            <a href="<%= /uudised/ + i %>">Loe edasi</a>     
+            
+        </div>
+        <% } %>
+    </div>
+
+</body>
+</html>

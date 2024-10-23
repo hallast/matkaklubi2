@@ -44,7 +44,7 @@ body {
     padding-left: 3rem;
 }
 
-.pais-menyy ul {
+.pais-menyy ul {  
     list-style-type: none;
     justify-content: flex-end;
 }
@@ -148,6 +148,22 @@ body {
     width: 50%
 }
 
+.uudis{
+    display: inline-table;    
+    outline-style: outset;
+    outline-color: grey;
+    margin-right: 3%;
+    margin-bottom: 3%;
+}
+
+.matkad{
+    display: flex;     
+    
+}
+
+.registreerumine input{
+    margin-top: 5px;
+}
 
 @media screen and (min-width: 992px) {
     .pealkiri-kastid {

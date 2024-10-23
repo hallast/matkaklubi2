@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Matkaklubi - Kontakt</title>
+    <%- include("./partials/header.ejs") %>
+    
+</head>
+<body>
+    <div class="container">
+        <%- include("./partials/menu.ejs") %>
+        <div class="kontakt-sisu mt-3">
+            <h2>Võta meiega ühendust</h2>
+            <form action="/kontakt" method="post">
+                <div class= "form-group">
+                    <label for="nimi">Nimi</label>
+                    <input placeholder="Sinu nimi ..." type="text" class="form-control" name="nimi" id="nimi">
+                </div>
+                <div class= "form-group">
+                    <label for="email">E-mail</label>
+                    <input placeholder="Sinu e-mail ..." type="text" class="form-control" name="email" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="nimi">Sõnum</label>
+                    <textarea placeholder="Kui on olulist infot..." class="form-control" name="msg" id="msg" rows="10"></textarea>
+                </div>
+                
+                <input type="submit" value="Saada"> 
+            </form>
+        </div>
+    </div>
+
+    
+    
+</body>
+</html>
