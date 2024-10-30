@@ -2,9 +2,12 @@ const express = require ('express')
 const ejs = require('ejs')
 const path = require('path')
 
+const {lisaMatk, loeMatkad} = require("./model")
+
 
 const app = express()
 app.use(express.urlencoded())
+app.use(express.json())
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -128,5 +131,46 @@ app.post('/registreerumine', (req, res) => {
     res.render('msg_kinnitus', {nimi: req.body.nimi})
     
  })
+
+ app.get('/api/lisaMatk', (req, res)=>{
+    const uusMatk = {
+        nimetus: req.query.nimetus
+    }
+    lisaMatk(uusMatk);
+    res.end("Lisatud")
+ })
+
+ app.get('/admin', (req,res ) => (res.render("admin")))
+
+ // API endpoint matkade nimekirja laadimiseks
+app.get('/api/matk', async (req, res) => {
+    const matkad = await loeMatkad()
+    res.json(matkad)
+})
+
+ // API endpoint 1 matka andmete laadimiseks
+app.get('/api/matk/:matkaIndex')
+
+// API endpoint 1 matka lisamiseks
+app.post('/api/matk', (req, res) => {
+    const uusMatk = req.body
+    console.log(uusMatk)
+    res.end("Kõik OK")
+})
+
+// API endpoint 1 matka kustutamiseks
+app.delete('/api/matk/:matkaIndex')
+
+// API endpoint 1 matka andmete muutmiseks
+app.patch('/api/matk/:matkaIndex')
+
+// API endpoint 1 matka osalejate laadimiseks
+app.get('/api/matk/:matkaIndex/osaleja')
+
+// API endpoint matka 1 osaleja andmete laadimiseks
+app.get('/api/matk/:matkaIndex/osaleja/:osalejaIndex')
+
+
+
 
  app.listen(PORT)
